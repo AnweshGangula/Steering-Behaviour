@@ -4,14 +4,14 @@
 // Video: https://www.youtube.com/watch?v=4hA7G3gup-4
 
 class Vehicle {
-  constructor(x, y) {
+  constructor(x, y, r) {
     this.pos = createVector(random(width), random(height));
     this.target = createVector(x, y);
     this.vel = p5.Vector.random2D();
     this.acc = createVector();
-    this.r = 8;
-    this.maxspeed = 10;
-    this.maxforce = 1;
+    this.r = r;
+    this.maxspeed = min(windowWidth / 50, 15);
+    this.maxforce = 1 // min(windowWidth / 60, 1);
   }
 
   behaviors() {

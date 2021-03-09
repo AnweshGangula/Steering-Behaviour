@@ -14,8 +14,11 @@ function preload() {
 
 function setup() {
   var Text = { first: "Anwesh", last: "Gangula" }
-  var Abbox = font.textBounds(Text.first, 0, 0, 192)
-  var Gbbox = font.textBounds(Text.last, 0, 0, 192)
+  var TextSize = min(windowWidth / 5, 192)
+  var radius = min(windowWidth / 100, 8)
+
+  var Abbox = font.textBounds(Text.first, 0, 0, TextSize)
+  var Gbbox = font.textBounds(Text.last, 0, 0, TextSize)
 
   createCanvas(windowWidth - 20, Abbox.h + Gbbox.h + 360);
   background(51);
@@ -25,18 +28,18 @@ function setup() {
   // noStroke();
   // text('train', 100, 200);
 
-  var APoints = font.textToPoints(Text.first, (windowWidth / 2 - Abbox.w / 2), Abbox.h + 150, 192, {
+  var APoints = font.textToPoints(Text.first, (windowWidth / 2 - Abbox.w / 2), Abbox.h + 150, TextSize, {
     sampleFactor: 0.25
   });
 
 
-  var GPoints = font.textToPoints(Text.last, (windowWidth / 2 - Gbbox.w / 2), Abbox.h + Gbbox.h + 150, 192, {
+  var GPoints = font.textToPoints(Text.last, (windowWidth / 2 - Gbbox.w / 2), Abbox.h + Gbbox.h + 150, TextSize, {
     sampleFactor: 0.25
   });
 
   for (let i = 0; i < APoints.length; i++) {
     let pt = APoints[i];
-    let A_pt = new Vehicle(pt.x, pt.y);
+    let A_pt = new Vehicle(pt.x, pt.y, radius);
     A_Points.push(A_pt);
     // stroke(255);
     // strokeWeight(8);
@@ -46,7 +49,7 @@ function setup() {
 
   for (let i = 0; i < GPoints.length; i++) {
     let pt = GPoints[i];
-    let G_pt = new Vehicle(pt.x, pt.y);
+    let G_pt = new Vehicle(pt.x, pt.y, radius);
     G_Points.push(G_pt);
     // stroke(255);
     // strokeWeight(8);
