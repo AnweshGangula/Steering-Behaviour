@@ -37,14 +37,27 @@ class Vehicle {
   }
 
   show() {
-    // stroke(150); //Color of Circle - Ex: Blue = (0, 100, 200)
+    colorMode(HSB);
+
+    let desired = p5.Vector.sub(this.target, this.pos);
+    let d = desired.mag();
+    let colorValue = 0
+    let transparency = 0
+    if (d < 100) {
+      colorValue = map(d, 0, 100, 206, 320); // Get color based on distance from target
+      transparency = map(d, 0, 100, 360, 0);
+    }
+
+    let stokeColor = color(colorValue, 100, 100) //HSL Color of Circle - Ex: Blue = (250, 100, 100)
+    stokeColor.setAlpha(transparency)
+    stroke(stokeColor);
+
     strokeWeight(this.r);
     point(this.pos.x, this.pos.y);
   }
 
 
   arrive(target) {
-    colorMode(HSB, 360);
     var desired = p5.Vector.sub(target, this.pos);
     var d = desired.mag();
     var speed = this.maxspeed;
@@ -54,19 +67,6 @@ class Vehicle {
     desired.setMag(speed);
     var steer = p5.Vector.sub(desired, this.vel);
     steer.limit(this.maxforce);
-    
-        
-    var colorValue = 0
-    var transparency = 0
-    if (d < 100) {
-      colorValue = map (d, 0, 100, 250, 100); //HSL Color mode
-      transparency  = map (d, 0, 100, 360, 0);
-    }
-    
-    var stokeColor = color(colorValue, 360, 320) //HSL Color mode
-    stokeColor.setAlpha(transparency)
-    stroke(stokeColor);
-    
     return steer;
   }
 
