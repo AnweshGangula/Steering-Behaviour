@@ -9,3 +9,29 @@ canvas {
   height: unset !important;
   /*    border-block: white solid; */
 }
+
+#anwesh {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  position: fixed;
+  font-size: 21vw;
+  top: -55px;
+  left: 51%;
+  transform: translate(-50%, 10px);
+  color: transparent;
+  letter-spacing: 8px;
+  text-align: left;
+}
+
+#gangula {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  position: fixed;
+  font-size: 21vw;
+  top: 140px;
+  left: 51%;
+  transform: translate(-50%, 10px);
+  color: transparent;
+  letter-spacing: 4px;
+  text-align: left;
+}

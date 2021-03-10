@@ -75,6 +75,6 @@ function draw() {
   }
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth - 20, windowHeight);
-}
+// function windowResized() { // resizing handled using CSS
+//   resizeCanvas(windowWidth - 20, windowHeight);
+// }

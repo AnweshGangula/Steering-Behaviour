@@ -11,7 +11,7 @@ class Vehicle {
     this.acc = createVector();
     this.r = r;
     this.maxspeed = min(windowWidth / 50, 15);
-    this.maxforce = 1 // min(windowWidth / 60, 1);
+    this.maxforce = min(windowWidth / 100, 1);;
   }
 
   behaviors() {
@@ -44,7 +44,7 @@ class Vehicle {
     let colorValue = 0
     let transparency = 0
     if (d < 100) {
-      colorValue = map(d, 0, 100, 206, 320); // Get color based on distance from target
+      colorValue = map(d, 0, 100, 206, 100); // Get color based on distance from target
       transparency = map(d, 0, 100, 360, 0);
     }
 
