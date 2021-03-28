@@ -5,7 +5,7 @@
 
 class Vehicle {
   constructor(x, y, r) {
-    this.pos = createVector(random(width), random(height));
+    this.pos = createVector(width / 2, height / 2);
     this.target = createVector(x, y);
     this.vel = p5.Vector.random2D();
     this.acc = createVector();
