@@ -43,9 +43,9 @@ class Vehicle {
     let d = desired.mag();
     let colorValue = 0
     let transparency = 0
-    if (d < 100) {
-      colorValue = map(d, 0, 100, 206, 100); // Get color based on distance from target
-      transparency = map(d, 0, 100, 360, 0);
+    if (d < 150) {
+      colorValue = map(d, 0, 150, 206, 0); // Get color based on distance from target
+      transparency = map(d, 0, 150, 1, 0);
     }
 
     let stokeColor = color(colorValue, 100, 100) //HSL Color of Circle - Ex: Blue = (250, 100, 100)

@@ -34,7 +34,7 @@ function setup() {
 
 
   var GPoints = font.textToPoints(Text.last, (windowWidth / 2 - Gbbox.w / 2), Abbox.h + Gbbox.h + 150, TextSize, {
-    sampleFactor: 0.25
+    sampleFactor: 0.5
   });
 
   for (let i = 0; i < APoints.length; i++) {
@@ -49,7 +49,7 @@ function setup() {
 
   for (let i = 0; i < GPoints.length; i++) {
     let pt = GPoints[i];
-    let G_pt = new Vehicle(pt.x, pt.y, radius);
+    let G_pt = new Vehicle(pt.x, pt.y, radius*0.5);
     G_Points.push(G_pt);
     // stroke(255);
     // strokeWeight(8);
